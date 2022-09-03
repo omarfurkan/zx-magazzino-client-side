@@ -27,6 +27,9 @@ const InventoryItems = () => {
                         )
                     }
                 </div>
+                <div className='mx-auto flex justify-center  mt-16'>
+                    <button className=' border-2 border-red-500 py-2 px-12 text-xl font-semibold hover:bg-red-500 hover:text-white'>See All</button>
+                </div>
             </div>
         </div>
     );
