@@ -1,10 +1,11 @@
 import React from 'react';
-import BannerImg from '../../Images/banner.jpg'
+import Banner from '../Banner/Banner';
+
 
 const Home = () => {
     return (
         <div>
-            <img className='' src={BannerImg} alt="" />
+            <Banner />
         </div>
     );
 };
