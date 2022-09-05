@@ -6,7 +6,7 @@ import { GiShakingHands } from 'react-icons/gi';
 
 const Counter = () => {
     return (
-        <div class=" bg-gradient-to-r from-[#f0ece3] to-[#faeddc] pt-24 pb-40">
+        <div className=" bg-gradient-to-r from-[#f0ece3] to-[#faeddc] pt-24 pb-40">
             <h2 className='text-4xl text-center font-condensed font-bold pb-16'>Contribution</h2>
             <div className='w-11/12 mx-auto'>
                 <div className="grid grid-cols-4 ">

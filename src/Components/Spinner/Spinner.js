@@ -11,7 +11,7 @@ const Spinner = () => {
                 color="#ef4444"
                 ariaLabel="bars-loading"
                 wrapperStyle={{}}
-                wrapperClass=""
+                wrapperclassName=""
                 visible={true}
             />
         </div>

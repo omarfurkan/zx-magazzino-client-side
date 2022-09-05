@@ -1,12 +1,17 @@
 import React from 'react';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
+import { useEffect } from 'react';
 
 const Login = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+    const from = location.state?.form?.pathname || '/'
 
     const handleLogin = e => {
         e.preventDefault();
@@ -16,6 +21,14 @@ const Login = () => {
 
         signInWithEmailAndPassword(email, password)
     }
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true })
+        }
+
+    }, [from, navigate, user])
+
     if (loading) {
         return <Spinner />;
     }

@@ -1,14 +1,57 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Spinner from '../Spinner/Spinner';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const InventoryItemDetail = () => {
-    let params = useParams();
-    params = params.itemId
-    console.log(params)
+    const [itemDetail, setItemDetail] = useState({});
+    const [user, loading, error] = useAuthState(auth);
+    let { itemId } = useParams();
+
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/item/${itemId}`)
+            .then(res => res.json())
+            .then(data => setItemDetail(data))
+    }, [itemId])
+
+    if (loading) {
+        return <Spinner />
+    }
+
+    const handleRestock = e => {
+        e.preventDefault()
+        console.log(e.target.restock.value)
+    }
+
     return (
-        <div>
-            <p>inventory item detail {params}</p>
-        </div>
+        <div className='bg-[#F0ECE3] h-screen '>
+            <div className='w-11/12 mx-auto grid grid-cols-3 justify-items-center items-center pt-32'>
+                <div className='w-[500px] '>
+                    <img src={itemDetail.img} alt="" />
+                </div>
+                <div className='px-2 font-poppins mb-16  col-span-2'>
+                    <div className='w-3/6 border-2 border-red-500 mx-auto px-12 py-16'>
+                        <p className='text-xl py-2 font-bold'>{itemDetail.name}</p>
+                        <p className=''>{itemDetail.shortDescripton}</p>
+                        <p> Quantity: <span className='font-bold'>{itemDetail.quantity}</span></p>
+                        <p>Price: <span className='text-red-500 text-xl font-blod'> ${itemDetail.price}</span></p>
+                        <p className='font-light text-sm'>Supplier: {itemDetail.supplierName}</p>
+                        <button className='mt-8 border-2 border-red-500 py-2 px-4 hover:bg-red-500 hover:text-white'>Delivered</button>
+                        <form onSubmit={handleRestock} className='flex justify-end '>
+                            <div className='grid grid-cols-2 border-2 border-red-500 py-2 px-4 hover:bg-red-500 '>
+                                <input className='w-20 text-lg order-2 outline-none  ' type="number" name="restock" id="" />
+                                <input className='hover:text-white cursor-pointer' type="submit" value="Restock" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div >
     );
 };
 
