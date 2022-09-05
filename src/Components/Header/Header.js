@@ -10,6 +10,7 @@ const Header = () => {
                 </div>
                 <div>
                     <Link to="/" className='text-white pb-2 border-red-500 hover:border-b-2'>Home</Link>
+                    <Link to="/login" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Login</Link>
                 </div>
             </nav>
         </div>
