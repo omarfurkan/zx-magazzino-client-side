@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const InventoryItem = ({ item }) => {
     const { _id, name, img, price, quantity, shortDescripton, supplierName } = item;
+    const navigate = useNavigate('/itemDetail/:itemId');
     return (
         <div className=' border-2 border-red-500 w-full relative'>
             <div className=''>
@@ -16,7 +18,7 @@ const InventoryItem = ({ item }) => {
 
             </div>
             <div className='mt-4 absolute bottom-0 w-full border-t-2 border-red-500 hover:bg-red-500 hover:text-white'>
-                <button className='w-full py-2 px-2 '>Update</button>
+                <button onClick={() => navigate(`/itemDetail/${_id}`)} className='w-full py-2 px-2 '>Update</button>
             </div>
 
         </div>

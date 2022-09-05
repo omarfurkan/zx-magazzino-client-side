@@ -3,7 +3,7 @@ import React from 'react';
 const TestimonalSays = (props) => {
 
     const { comment, img, name, post } = props?.clientSay;
-    console.log(comment)
+
     return (
         <div>
             <figure className="mx-auto max-w-screen-md text-center py-12">
