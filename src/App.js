@@ -10,6 +10,7 @@ import ManageInventories from './Components/ManageInventories/ManageInventories'
 import AddItem from './Components/AddItem/AddItem';
 import MyItems from './Components/MyItems/MyItems';
 import Blogs from './Components/Blogs/Blogs';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
