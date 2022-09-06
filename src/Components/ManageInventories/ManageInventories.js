@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import AllInventoryItems from '../AllInventoryItems/AllInventoryItems';
-
+import { useNavigate } from "react-router-dom";
 
 const ManageInventories = () => {
+    let navigate = useNavigate();
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/items`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
+
+    const handleNavigateToAddItem = () => {
+        navigate('/add-item')
+    }
     return (
         <div className='h-full bg-[#F0ECE3]'>
             <div className='w-11/12 mx-auto'>
                 <h2 className='text-center py-12 text-4xl font-bold font-condensed'>Manage Inventories</h2>
                 <div className='flex mb-6 justify-end'>
-                    <button className='border-2 border-red-500 py-2 px-12 text-xl font-semibold hover:bg-red-500 hover:text-white'>Add New Item</button>
+                    <button onClick={handleNavigateToAddItem} className='border-2 border-red-500 py-2 px-12 text-xl font-semibold hover:bg-red-500 hover:text-white'>Add New Item</button>
                 </div>
                 <div class="overflow-x-auto relative">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

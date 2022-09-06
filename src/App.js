@@ -7,6 +7,7 @@ import SignUp from './Components/SignUp/SignUp';
 import InventoryItemDetail from './Components/InventoryItemDetail/InventoryItemDetail';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import ManageInventories from './Components/ManageInventories/ManageInventories';
+import AddItem from './Components/AddItem/AddItem';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <ManageInventories />
           </RequireAuth>
         } />
+        <Route path="/add-item" element={<AddItem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
