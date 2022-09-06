@@ -14,6 +14,7 @@ const Header = () => {
                 </div>
                 <div>
                     <Link to="/" className='text-white pb-2 border-red-500 hover:border-b-2'>Home</Link>
+                    <Link to="/blogs" className='text-white pb-2 border-red-500 hover:border-b-2  ml-4'>Blogs</Link>
                     {
                         !user ?
                             <Link to="/login" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Login</Link>
@@ -23,6 +24,7 @@ const Header = () => {
                             <>
                                 <Link to="/manage-inventories" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Manage</Link>
                                 <Link to="/add-item" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Add-Item</Link>
+                                <Link to="/my-items" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>My-Item</Link>
 
                                 <span onClick={() => signOut(auth)} className='text-white pb-2 my-0 mx-0 border-red-500 hover:border-b-2 cursor-pointer ml-4'>Sign Out</span>
                             </>

@@ -15,7 +15,7 @@ const ManageInventories = () => {
         navigate('/add-item')
     }
     return (
-        <div className='h-full bg-[#F0ECE3]'>
+        <div className='py-12 bg-[#F0ECE3]'>
             <div className='w-11/12 mx-auto'>
                 <h2 className='text-center py-12 text-4xl font-bold font-condensed'>Manage Inventories</h2>
                 <div className='flex mb-6 justify-end'>
