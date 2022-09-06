@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
-import { useState } from 'react';
+
 
 const SignUp = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+
     const [misMatch, setMisMatch] = useState('');
+    const from = location?.state?.form?.pathname || '/'
+
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -18,8 +23,8 @@ const SignUp = () => {
 
         if (password === confirmPassword) {
             createUserWithEmailAndPassword(email, password)
-
             setMisMatch('')
+
         }
         else {
             setMisMatch('Password did not match')
@@ -30,6 +35,11 @@ const SignUp = () => {
     if (loading) {
         return <Spinner />;
     }
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
 
     return (
         <div className='h-screen bg-[#F0ECE3]'>

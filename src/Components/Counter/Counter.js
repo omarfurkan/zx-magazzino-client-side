@@ -9,7 +9,7 @@ const Counter = () => {
         <div className=" bg-gradient-to-r from-[#f0ece3] to-[#faeddc] pt-24 pb-40">
             <h2 className='text-4xl text-center font-condensed font-bold pb-16'>Contribution</h2>
             <div className='w-11/12 mx-auto'>
-                <div className="grid grid-cols-4 ">
+                <div className="grid lg:grid-cols-4 ">
 
                     <div className='border-2 border-red-500 text-center justify-center py-4 bg-[#e5e7eb]'>
                         <p className='flex justify-center items-center text-red-500 gap-2'><ImOffice className='text-4xl' /> <span className='text-5xl font-poppin font-bold '>15</span> </p>

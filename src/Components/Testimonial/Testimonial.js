@@ -22,7 +22,7 @@ const Testimonial = () => {
     return (
         <div className='bg-gray-200'>
             <h2 className='text-center font-condensed font-bold text-4xl py-12'>Testimonials</h2>
-            <div className=' grid grid-cols-2 w-11/12 mx-auto pb-16'>
+            <div className=' grid lg:grid-cols-2 w-11/12 mx-auto pb-16'>
                 {
                     clientsSay.map((clientSay, index) => <TestimonalSays
                         key={index}

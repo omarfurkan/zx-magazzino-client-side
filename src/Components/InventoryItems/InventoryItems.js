@@ -23,7 +23,7 @@ const InventoryItems = () => {
                     <h1 className=' font-condensed text-4xl font-bold'>Inventory Items</h1>
                     <p className='font-poppins'>Constructional Tools</p>
                 </div>
-                <div className='grid grid-cols-4 gap-12'>
+                <div className='grid  lg:grid-cols-4 gap-12'>
                     {
                         items.slice(0, 6).map(item =>
                             <InventoryItem
