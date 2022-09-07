@@ -24,8 +24,11 @@ const AllInventoryItems = ({ item }) => {
             <td class="py-4 px-6">
                 <img className='w-20' src={img} alt="" />
             </td>
+            <td class="py-4 px-6">
+                <button className='border-2 border-red-500 py-2 px-6  hover:bg-red-500 hover:text-white'>Delete</button>
+            </td>
 
-        </tr>
+        </tr >
     );
 };
 

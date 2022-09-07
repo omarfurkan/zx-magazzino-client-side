@@ -7,8 +7,8 @@ import Spinner from '../Spinner/Spinner';
 import { useEffect } from 'react';
 
 const Login = () => {
-    let navigate = useNavigate();
-    let location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
     const from = location.state?.form?.pathname || '/'

@@ -43,6 +43,9 @@ const ManageInventories = () => {
                                 <th scope="col" class="py-3 px-6">
                                     Image
                                 </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Remove
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
