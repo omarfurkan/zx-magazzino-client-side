@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+
 
 const AddItem = () => {
 
@@ -10,8 +12,9 @@ const AddItem = () => {
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
         const supplierName = e.target.supplierName.value;
-        const shortDescripton = e.target.shortDescripton.valu;
+        const shortDescripton = e.target.shortDescripton.value;
 
+        toast('Item Added')
         const url = `http://localhost:5000/item`
 
         fetch(url, {
@@ -26,6 +29,8 @@ const AddItem = () => {
             .then((response) => response.json())
             .then((data) => console.log(data));
 
+
+        e.target.reset();
 
     }
 
@@ -53,7 +58,9 @@ const AddItem = () => {
                     </form>
                 </div>
             </div>
+
         </div>
+
     );
 };
 
