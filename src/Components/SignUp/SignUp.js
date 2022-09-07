@@ -42,8 +42,8 @@ const SignUp = () => {
 
 
     return (
-        <div className='h-screen bg-[#F0ECE3]'>
-            <div className='w-4/12  mx-auto pt-40 '>
+        <div className='lg:h-screen pb-8 bg-[#F0ECE3]'>
+            <div className='lg:w-4/12  mx-auto lg:pt-40 '>
                 <div className='border border-red-500'>
                     <div className='flex justify-center my-6'>
                         <span className=' text-red-500 font-black text-4xl' >ZX</span> <span className='font-qahiri text-4xl text-black'>magazzino</span>
