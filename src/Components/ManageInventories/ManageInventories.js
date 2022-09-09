@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import AllInventoryItems from '../AllInventoryItems/AllInventoryItems';
 import { useNavigate } from "react-router-dom";
 
+
 const ManageInventories = () => {
+
     let navigate = useNavigate();
     const [items, setItems] = useState([]);
     useEffect(() => {
@@ -14,6 +16,25 @@ const ManageInventories = () => {
     const handleNavigateToAddItem = () => {
         navigate('/add-item')
     }
+
+    const handleDelete = DeleteId => {
+        console.log(DeleteId)
+        const url = `http://localhost:5000/item/${DeleteId}`
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.deletedCount > 0) {
+                    const remains = items.filter(item => item._id !== DeleteId)
+                    setItems(remains)
+                }
+
+            });
+
+    }
+
+
     return (
         <div className='py-12 bg-[#F0ECE3]'>
             <div className='w-11/12 mx-auto'>
@@ -55,6 +76,7 @@ const ManageInventories = () => {
                                     <AllInventoryItems
                                         key={item._id}
                                         item={item}
+                                        handleDelete={handleDelete}
                                     />
                                 )
                             }

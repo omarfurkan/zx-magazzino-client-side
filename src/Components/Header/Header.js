@@ -24,7 +24,7 @@ const Header = () => {
                             <>
                                 <Link to="/manage-inventories" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Manage</Link>
                                 <Link to="/add-item" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Add-Item</Link>
-                                <Link to="/my-items" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>My-Item</Link>
+                                <Link to="/myitems" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>My-Item</Link>
 
 
                                 <button onClick={() => signOut(auth)} className='text-white pb-2 my-0 mx-0 border-red-500 hover:border-b-2 cursor-pointer ml-4'>Sign Out</button>

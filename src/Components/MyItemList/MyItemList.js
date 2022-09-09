@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const AllInventoryItems = (props) => {
-    const { _id, name, img, price, quantity, shortDescripton, supplierName } = props.item;
+const MyItemList = (props) => {
+    const { _id, name, img, price, quantity, shortDescripton, supplierName } = props.myItem;
     const { handleDelete } = props
-
-
-
-
-
     return (
         <tr className="bg-white border-b font-poppins">
 
@@ -38,4 +33,4 @@ const AllInventoryItems = (props) => {
     );
 };
 
-export default AllInventoryItems;
+export default MyItemList;

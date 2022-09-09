@@ -9,7 +9,7 @@ import Spinner from '../Spinner/Spinner';
 const SignUp = () => {
     let navigate = useNavigate();
     let location = useLocation();
-    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [misMatch, setMisMatch] = useState('');
     const from = location?.state?.form?.pathname || '/'

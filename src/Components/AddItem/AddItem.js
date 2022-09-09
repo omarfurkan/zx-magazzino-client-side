@@ -1,13 +1,17 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 
 const AddItem = () => {
+    const [user] = useAuthState(auth);
+
 
 
     const handleAddItem = e => {
         e.preventDefault()
-
+        const email = user?.email;
         const name = e.target.name.value;
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
@@ -20,7 +24,7 @@ const AddItem = () => {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(
-                { name, price, quantity, supplierName, shortDescripton }
+                { email, name, price, quantity, supplierName, shortDescripton }
             ),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

@@ -2,12 +2,13 @@ import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
 
 const SocialLogin = () => {
+    const [user, loading, error] = useAuthState(auth);
     let navigate = useNavigate();
     let location = useLocation();
     const from = location.state?.form?.pathname || '/'
@@ -16,9 +17,12 @@ const SocialLogin = () => {
         return <Spinner />;
     }
 
-    if (googleUser) {
+
+    if (user) {
         return navigate(from, { replace: true });
     }
+
+
 
 
     return (
