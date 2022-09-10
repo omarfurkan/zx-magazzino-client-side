@@ -5,7 +5,6 @@ import auth from '../../firebase.init';
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner/Spinner';
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect } from 'react';
 
 const SocialLogin = () => {
     const [user, loading, error] = useAuthState(auth);

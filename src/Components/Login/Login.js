@@ -13,18 +13,31 @@ const Login = () => {
 
     const from = location.state?.form?.pathname || '/'
 
-    const handleLogin = e => {
+    const handleLogin = async e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
 
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password);
+
+        await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                localStorage.setItem('accessToken', data.accessToken)
+            });
     }
 
     useEffect(() => {
         if (user) {
-            navigate(from, { replace: true });
+            // navigate(from, { replace: true });
         }
 
     }, [from, navigate, user])

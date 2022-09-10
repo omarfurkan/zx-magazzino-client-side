@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Footer from '../Footer/Footer';
 
 
 const AddItem = () => {
@@ -16,6 +17,7 @@ const AddItem = () => {
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
         const supplierName = e.target.supplierName.value;
+        const img = e.target.img.value;
         const shortDescripton = e.target.shortDescripton.value;
 
         toast('Item Added')
@@ -24,7 +26,7 @@ const AddItem = () => {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(
-                { email, name, price, quantity, supplierName, shortDescripton }
+                { email, name, price, quantity, supplierName, img, shortDescripton }
             ),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -40,7 +42,7 @@ const AddItem = () => {
 
     return (
         <div className=' bg-[#F0ECE3]'>
-            <div className='lg:w-4/12  mx-auto py-20 '>
+            <div className=' md:w-8/12 lg:w-4/12   mx-auto py-20  '>
                 <div className='border border-red-500'>
                     <div className='flex justify-center my-6'>
                         <span className=' text-red-500 font-black text-4xl' >ZX</span> <span className='font-qahiri text-4xl text-black'>magazzino</span>
@@ -54,7 +56,7 @@ const AddItem = () => {
                         <br />
                         <input className='border-2 w-full my-4 py-2 pl-2 outline-0 border-red-500 font-condensed text-xl bg-gray-200' type="text" name="supplierName" id="" placeholder='Supplier Name' required />
                         <br />
-                        <input className='border-2 w-full my-4 py-2 pl-2 outline-0 border-red-500 font-condensed text-xl bg-gray-200' type="text" name="photo" id="" placeholder='Photo URL' required />
+                        <input className='border-2 w-full my-4 py-2 pl-2 outline-0 border-red-500 font-condensed text-xl bg-gray-200' type="text" name="img" id="" placeholder='Photo URL' required />
                         <br />
                         <textarea className='border-2 w-full my-4 py-2 pl-2 outline-0 border-red-500 font-condensed text-xl bg-gray-200' name="shortDescripton" placeholder='Short Description' id="" rows="4" required></textarea>
                         <br />
@@ -62,7 +64,7 @@ const AddItem = () => {
                     </form>
                 </div>
             </div>
-
+            <Footer />
         </div>
 
     );

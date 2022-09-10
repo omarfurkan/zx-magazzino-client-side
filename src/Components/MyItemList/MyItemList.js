@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiDeleteBinFill } from 'react-icons/ri';
 
 const MyItemList = (props) => {
     const { _id, name, img, price, quantity, shortDescripton, supplierName } = props.myItem;
@@ -26,7 +27,7 @@ const MyItemList = (props) => {
                 <img className='w-20' src={img} alt="" />
             </td>
             <td className="py-4 px-6">
-                <button onClick={() => handleDelete(_id)} className='border-2 border-red-500 py-2 px-6  hover:bg-red-500 hover:text-white'>Delete</button>
+                <button onClick={() => handleDelete(_id)} className='border-2 border-red-500 py-4 px-4  text-red-500 hover:bg-red-500 hover:text-white'><RiDeleteBinFill className='text-2xl' /></button>
             </td>
 
         </tr >

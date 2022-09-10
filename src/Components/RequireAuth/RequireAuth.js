@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 import Spinner from '../Spinner/Spinner';
 import { toast } from 'react-toastify';
-import { async } from '@firebase/util';
 
 const RequireAuth = ({ children }) => {
     const [user, loading, error] = useAuthState(auth);

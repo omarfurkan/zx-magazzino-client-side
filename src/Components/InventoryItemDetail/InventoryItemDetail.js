@@ -40,11 +40,11 @@ const InventoryItemDetail = () => {
 
     return (
         <div className='bg-[#F0ECE3] lg:h-screen '>
-            <div className='w-11/12 mx-auto grid lg:grid-cols-3 justify-items-center items-center pt-32'>
+            <div className='w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center pt-32'>
                 <div className='lg:w-[500px] '>
                     <img src={itemDetail.img} alt="" />
                 </div>
-                <div className='px-2 font-poppins mb-16  lg:col-span-2'>
+                <div className='px-2 font-poppins mb-16 md:col-span-1  lg:col-span-2'>
                     <div className='lg:w-3/6 border-2 border-red-500 mx-auto px-12 py-16'>
                         <p className='text-xl py-2 font-bold'>{itemDetail.name}</p>
                         <p className=''>{itemDetail.shortDescripton}</p>

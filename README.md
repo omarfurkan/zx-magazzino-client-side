@@ -1,3 +1,15 @@
+# ZXmagazzino
+
+## Zxmagazzino is an inventory management website where it will manage all the constructional tools and accessories in fast and easiest way.
+
+## features and functionality
+
+- Protected Route
+- CRUD oparation implemented
+- Authentication and authorization system applied
+- Information protected with jwt
+- User Friendly and easy to manage
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +80,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # zx-magazzino-client-side
