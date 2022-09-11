@@ -5,7 +5,7 @@ const InventoryItem = ({ item }) => {
     const { _id, name, img, price, quantity, shortDescripton, supplierName } = item;
     const navigate = useNavigate('/itemDetail/:itemId');
     return (
-        <div className=' border-2 border-red-500 w-full relative'>
+        <div className=' border-2 border-red-500 w-full h-[750px] relative'>
             <div className=''>
                 <img src={img} alt="" />
             </div>
