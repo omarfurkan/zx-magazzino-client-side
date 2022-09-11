@@ -11,7 +11,7 @@ const InventoryItems = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         setSpinner(true)
-        fetch(`http://localhost:5000/items`)
+        fetch(`https://zx-magazzino-server-side.herokuapp.com/items`)
             .then(res => res.json())
             .then(data => setItems(data))
         setSpinner(false)

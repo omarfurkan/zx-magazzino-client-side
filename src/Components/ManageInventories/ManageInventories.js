@@ -11,7 +11,7 @@ const ManageInventories = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         setSpinner(true)
-        fetch(`http://localhost:5000/items`)
+        fetch(`https://zx-magazzino-server-side.herokuapp.com/items`)
             .then(res => res.json())
             .then(data => setItems(data))
         setSpinner(false)
@@ -30,7 +30,7 @@ const ManageInventories = () => {
 
         const proceed = window.confirm('Are you sure')
         if (proceed) {
-            const url = `http://localhost:5000/item/${DeleteId}`
+            const url = `https://zx-magazzino-server-side.herokuapp.com/item/${DeleteId}`
             fetch(url, {
                 method: 'DELETE',
             })

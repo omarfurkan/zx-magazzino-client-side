@@ -21,7 +21,7 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, password);
 
-        await fetch('http://localhost:5000/login', {
+        await fetch('https://zx-magazzino-server-side.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({ email }),
             headers: {

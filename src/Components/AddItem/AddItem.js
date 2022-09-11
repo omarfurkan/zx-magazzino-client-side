@@ -21,7 +21,7 @@ const AddItem = () => {
         const shortDescripton = e.target.shortDescripton.value;
 
         toast('Item Added')
-        const url = `http://localhost:5000/item`
+        const url = `https://zx-magazzino-server-side.herokuapp.com/item`
 
         fetch(url, {
             method: 'POST',

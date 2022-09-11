@@ -13,7 +13,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/myitem?email=${email}`;
+        const url = `https://zx-magazzino-server-side.herokuapp.com/myitem?email=${email}`;
         fetch(url, {
             headers: {
                 authrization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const MyItems = () => {
         console.log(DeleteId)
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/item/${DeleteId}`
+            const url = `https://zx-magazzino-server-side.herokuapp.com/item/${DeleteId}`
             fetch(url, {
                 method: 'DELETE',
             })
