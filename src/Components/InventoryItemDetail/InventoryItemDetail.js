@@ -1,28 +1,25 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 import Spinner from '../Spinner/Spinner';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 const InventoryItemDetail = () => {
+    const [spinner, setSpinner] = useState(false);
     const [itemDetail, setItemDetail] = useState({});
-    const [user, loading, error] = useAuthState(auth);
-    const num = itemDetail.quantity;
-    const [newQuantity, setNewQuantity] = useState(99)
+
+    const [newQuantity, setNewQuantity] = useState(itemDetail.quantity)
     let { itemId } = useParams();
 
-
-
-
     useEffect(() => {
+        setSpinner(true)
         fetch(`http://localhost:5000/item/${itemId}`)
             .then(res => res.json())
             .then(data => setItemDetail(data))
+        setSpinner(false)
     }, [itemId])
 
-    if (loading) {
+    if (spinner) {
         return <Spinner />
     }
 
@@ -31,12 +28,9 @@ const InventoryItemDetail = () => {
         console.log(e.target.restock.value)
     }
 
-
     const handleDeleveredByOne = () => {
-
-        setNewQuantity(newQuantity - 1)
+        setNewQuantity(itemDetail.quantity - 1)
     }
-
 
     return (
         <div className='bg-[#F0ECE3] lg:h-screen '>
@@ -48,10 +42,9 @@ const InventoryItemDetail = () => {
                     <div className='lg:w-3/6 border-2 border-red-500 mx-auto px-12 py-16'>
                         <p className='text-xl py-2 font-bold'>{itemDetail.name}</p>
                         <p className=''>{itemDetail.shortDescripton}</p>
-                        <p> Quantity: <span className='font-bold'>{itemDetail.quantity}</span> {newQuantity}</p>
+                        <p> Quantity: <span className='font-bold'>{newQuantity}</span></p>
                         <p>Price: <span className='text-red-500 text-xl font-blod'> ${itemDetail.price}</span></p>
                         <p className='font-light text-sm'>Supplier: {itemDetail.supplierName}</p>
-
                         <button onClick={handleDeleveredByOne} className='mt-8 border-2 border-red-500 py-2 lg:px-6 w-full lg:w-fit  hover:bg-red-500 hover:text-white'>Delivered</button>
                         <form onSubmit={handleRestock} className='flex justify-end mt-8 lg:mt-0'>
                             <div className='grid grid-cols-2 border-2 border-red-500 py-2 px-4 hover:bg-red-500 '>
@@ -65,5 +58,4 @@ const InventoryItemDetail = () => {
         </div >
     );
 };
-
 export default InventoryItemDetail;

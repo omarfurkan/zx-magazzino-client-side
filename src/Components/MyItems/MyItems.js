@@ -1,4 +1,3 @@
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -14,26 +13,14 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user?.email;
-
         const url = `http://localhost:5000/myitem?email=${email}`;
-
-        try {
-            fetch(url, {
-                headers: {
-                    authrization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then((response) => response.json())
-                .then((data) => setMyitems(data))
-        }
-        catch (error) {
-            console.log(error.message)
-            if (error.response.status === 401 || error.response.status === 403) {
-                signOut(auth);
-                navigate('/login')
+        fetch(url, {
+            headers: {
+                authrization: `Bearer ${localStorage.getItem('accessToken')}`
             }
-        }
-
+        })
+            .then((response) => response.json())
+            .then((data) => setMyitems(data))
     }, [user?.email, navigate]);
 
     const handleDelete = DeleteId => {

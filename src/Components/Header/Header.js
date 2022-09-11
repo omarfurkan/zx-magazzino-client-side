@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     return (
         <div className='bg-black py-2'>
             <nav className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center'>
                 <div>
-                    <span className=' text-red-500 font-black text-4xl' >ZX</span> <span className='font-qahiri text-4xl text-white'>magazzino</span>
+                    <Link to="/">
+                        <span className=' text-red-500 font-black text-4xl' >ZX</span> <span className='font-qahiri text-4xl text-white'>magazzino</span>
+                    </Link>
                 </div>
                 <div >
                     <Link to="/" className='text-white pb-2 border-red-500 hover:border-b-2'>Home</Link>
@@ -26,13 +28,9 @@ const Header = () => {
                                 <Link to="/add-item" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>Add-Item</Link>
                                 <Link to="/myitems" className='text-white pb-2 border-red-500 hover:border-b-2 ml-4'>My-Item</Link>
 
-
-                                <button onClick={() => signOut(auth)} className='text-white pb-2 my-0 mx-0 border-red-500 hover:border-b-2 cursor-pointer ml-4'>Sign Out</button>
+                                <button onClick={() => signOut(auth)} className='text-white pb-2 my-0 mx-0 border-red-500 hover:underline underline-offset-[10px] decoration-2 decoration-red-500 cursor-pointer ml-4'>Sign Out</button>
 
                             </>
-
-
-
                     }
                 </div>
             </nav>

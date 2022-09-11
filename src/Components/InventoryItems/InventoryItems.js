@@ -3,15 +3,23 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import { useNavigate } from "react-router-dom";
+import Spinner from '../Spinner/Spinner';
 
 const InventoryItems = () => {
+    const [spinner, setSpinner] = useState(false);
     let navigate = useNavigate();
     const [items, setItems] = useState([]);
     useEffect(() => {
+        setSpinner(true)
         fetch(`http://localhost:5000/items`)
             .then(res => res.json())
             .then(data => setItems(data))
+        setSpinner(false)
     }, [])
+
+    if (spinner) {
+        return <Spinner />
+    }
 
     const handleNavigateToManage = () => {
         navigate('/manage-inventories')
